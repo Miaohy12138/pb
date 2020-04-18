@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.miaohy.pb.modules.mapper.ClientIpMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="net.miaohy.pb.modules.entity.ClientIp">
+    <result column="id" property="id" />
+        <result column="client_id" property="clientId" />
+        <result column="user_id" property="userId" />
+        <result column="user_type" property="userType" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="ip" property="ip" />
+        <result column="country" property="country" />
+        <result column="country_id" property="countryId" />
+        <result column="area" property="area" />
+        <result column="area_id" property="areaId" />
+        <result column="region" property="region" />
+        <result column="region_id" property="regionId" />
+        <result column="city" property="city" />
+        <result column="city_id" property="cityId" />
+        <result column="county" property="county" />
+        <result column="county_id" property="countyId" />
+        <result column="isp" property="isp" />
+        <result column="isp_id" property="ispId" />
+    </resultMap>
+
+</mapper>

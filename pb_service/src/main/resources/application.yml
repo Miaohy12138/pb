@@ -1,0 +1,109 @@
+#----------tomcat设置-------
+server:
+  port: 8088
+  servlet:
+    context-path: /
+  tomcat:
+    max-threads: 1000
+    min-spare-threads: 30
+    uri-encoding: UTF-8
+
+#------------spring设置------
+spring:
+  application:
+    name: pb_service
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+  jackson:
+    date-format: yyy-MM-dd HH:mm:ss
+    time-zone: GMT
+  profiles:
+    active: dev
+
+logging:
+  level:
+    net.miaohy.pb: debug
+
+#-------mybatis-plus配置
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*Mapper.xml
+  #实体扫描，多个package用逗号或者分号分隔
+  type-aliases-package: net.miaohy.pb.modules.entity
+  global-config:
+    # 数据库相关配置
+    db-config:
+      #主键类型  AUTO:"数据库ID自增", INPUT:"用户输入ID",ID_WORKER:"全局唯一ID (数字类型唯一ID)", UUID:"全局唯一ID UUID";
+      id-type: AUTO
+      #字段策略 IGNORED:"忽略判断",NOT_NULL:"非 NULL 判断"),NOT_EMPTY:"非空判断"
+      field-strategy: NOT_EMPTY
+      #数据库大写下划线转换
+      #capital-mode: true
+      #逻辑删除配置   @TableLogic
+      #      logic-delete-field: flag  #全局逻辑删除字段值
+      #      logic-delete-value: 1
+      #      logic-not-delete-value: 0
+      db-type: mysql
+  #    #刷新mapper 调试神器
+  #    refresh: true
+  # 原生配置
+  configuration:
+    #驼峰下划线转换
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+
+#--doc-bos 配置
+doc-bos:
+  filter:
+    # 请求路径Filter配置
+    request-path:
+      enabled: true
+      include-paths: /**
+      # 排除路径，多行字符串配置
+      exclude-paths: |
+        /swagger-resources/**,/v2/api-docs,/v2/api-docs-ext,/doc.html
+
+  shiro:
+    # 是否启用
+    enable: true
+    # shiro ini 多行字符串配置
+    filter-chain-definitions: |
+      /=anon
+      /static/**=anon
+      /templates/**=anon
+      /druid/**=anon
+    # 权限配置
+    permission:
+      # 排除登陆登出相关
+      - urls: /pb/user/login,/pb/user/logout,/pb/user/register
+        permission: anon
+        # 排除静态资源
+      - urls: /static/**,/templates/**
+        permission: anon
+        # 排除Swagger
+      - urls: /swagger-resources,/v2/api-docs,/v2/api-docs-ext,/doc.html,/webjars/**
+        permission: anon
+
+  jwt:
+    # token请求头名称
+    token-name: token
+    # jwt密钥
+    secret: 666666
+    # 发行人
+    issuer: pb-bos
+    # 观众
+    audience: web
+    # 默认过期时间1小时，单位：秒
+    expire-second: 3600
+    # 是否刷新token
+    refresh-token: true
+    # 刷新token的时间间隔，默认10分钟，单位：秒
+    refresh-token-countdown: 600
+    # redis校验jwt token是否存在,可选
+    redis-check: true
+    # true: 同一个账号只能是最后一次登陆token有效，false：同一个账号可多次登陆
+    single-login: false
+    # 盐值校验，如果不加自定义盐值，则使用secret校验
+    salt-check: false #TODO 先不做盐值校验

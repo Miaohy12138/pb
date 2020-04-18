@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<packaging>pom</packaging>
+	<groupId>net.miaohy</groupId>
+	<artifactId>pb</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<name>pb-bos</name>
+	<description>项目parent</description>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.2.2.RELEASE</version>
+	</parent>
+
+	<modules>
+		<module>pb_common</module>
+		<module>pb_service</module>
+	</modules>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>1.8</java.version>
+		<druid.version>1.1.21</druid.version>
+		<mysql.version>8.0.18</mysql.version>
+		<fastjson.version>1.2.62</fastjson.version>
+		<commons-lang3.version>3.9</commons-lang3.version>
+		<commons-collections4.version>4.4</commons-collections4.version>
+		<commons-io.version>2.6</commons-io.version>
+		<commons-codec.version>1.13</commons-codec.version>
+		<commons-net.version>3.6</commons-net.version>
+		<commons-pool2.version>2.7.0</commons-pool2.version>
+		<hutool.version>5.1.0</hutool.version>
+		<mybatisplus.version>3.3.0</mybatisplus.version>
+		<velocity.version>2.1</velocity.version>
+		<swagger.version>2.9.2</swagger.version>
+		<swagger.ui.version>1.9.6</swagger.ui.version>
+<!--		<shiro.spring.version>1.4.2</shiro.spring.version>-->
+		<shiro.version>1.4.2</shiro.version>
+		<jackson.version> 2.9.10</jackson.version>
+		<jackson-databind.version> 2.9.10.3</jackson-databind.version>
+		<jwt.auth0.version>3.9.0</jwt.auth0.version>
+		<pb.version>1.0.0-SNAPSHOT</pb.version>
+	</properties>
+
+
+   <!--   各依赖版本管理	-->
+	<dependencyManagement>
+		<dependencies>
+			<!--     mybatis plus  -->
+			<dependency>
+				<groupId>com.baomidou</groupId>
+				<artifactId>mybatis-plus-boot-starter</artifactId>
+				<version>${mybatisplus.version}</version>
+			</dependency>
+			<!-- mybatis plus 代码生成 -->
+			<dependency>
+				<groupId>com.baomidou</groupId>
+				<artifactId>mybatis-plus-generator</artifactId>
+				<version>${mybatisplus.version}</version>
+			</dependency>
+			<!-- 模板引擎 -->
+			<dependency>
+				<groupId>org.apache.velocity</groupId>
+				<artifactId>velocity-engine-core</artifactId>
+				<version>${velocity.version}</version>
+			</dependency>
+			<!--druid连接池 -->
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>druid-spring-boot-starter</artifactId>
+				<version>${druid.version}</version>
+			</dependency>
+			<!--mysql驱动 -->
+			<dependency>
+				<groupId>mysql</groupId>
+				<artifactId>mysql-connector-java</artifactId>
+				<version>${mysql.version}</version>
+			</dependency>
+			<!--fast json -->
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>fastjson</artifactId>
+				<version>${fastjson.version}</version>
+			</dependency>
+			<!--Apache commons -->
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-lang3</artifactId>
+				<version>${commons-lang3.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-collections4</artifactId>
+				<version>${commons-collections4.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-io</groupId>
+				<artifactId>commons-io</artifactId>
+				<version>${commons-io.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-codec</groupId>
+				<artifactId>commons-codec</artifactId>
+				<version>${commons-codec.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-net</groupId>
+				<artifactId>commons-net</artifactId>
+				<version>${commons-net.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-pool2</artifactId>
+				<version>${commons-pool2.version}</version>
+			</dependency>
+			<!-- Hutool工具包 -->
+			<dependency>
+				<groupId>cn.hutool</groupId>
+				<artifactId>hutool-all</artifactId>
+				<version>${hutool.version}</version>
+			</dependency>
+			<!-- json数据 -->
+			<dependency>
+				<groupId>com.fasterxml.jackson.core</groupId>
+				<artifactId>jackson-core</artifactId>
+				<version>${jackson.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.fasterxml.jackson.core</groupId>
+				<artifactId>jackson-databind</artifactId>
+				<version>${jackson-databind.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.fasterxml.jackson.core</groupId>
+				<artifactId>jackson-annotations</artifactId>
+				<version>${jackson.version}</version>
+			</dependency>
+			<!-- swagger -->
+			<dependency>
+				<groupId>io.springfox</groupId>
+				<artifactId>springfox-swagger2</artifactId>
+				<version>${swagger.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.github.xiaoymin</groupId>
+				<artifactId>swagger-bootstrap-ui</artifactId>
+				<version>${swagger.ui.version}</version>
+			</dependency>
+			<!--	shiro	-->
+<!--			<dependency>-->
+<!--				<groupId>org.apache.shiro</groupId>-->
+<!--				<artifactId>shiro-spring-boot-web-starter</artifactId>-->
+<!--				<version>${shiro.spring.version}</version>-->
+<!--			</dependency>-->
+			<dependency>
+				<groupId>org.apache.shiro</groupId>
+				<artifactId>shiro-spring</artifactId>
+				<version>${shiro.version}</version>
+			</dependency>
+			<!--	jwt	-->
+			<dependency>
+				<groupId>com.auth0</groupId>
+				<artifactId>java-jwt</artifactId>
+				<version>${jwt.auth0.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.aspectj</groupId>
+				<artifactId>aspectjweaver</artifactId>
+				<version>1.9.5</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+</project>

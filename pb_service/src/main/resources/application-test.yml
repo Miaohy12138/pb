@@ -1,0 +1,45 @@
+spring:
+  profiles: test
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://127.0.0.1:3306/jeecg-boot?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=UTC
+      username: root
+      password: root
+      initial-size: 20
+      min-idle: 20
+      max-active: 100
+      max-wait: 60000
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: SELECT 1 FROM DUAL
+      test-on-borrow: false
+      test-on-return: false
+      test-while-idle: true
+      pool-prepared-statements: false
+      max-pool-prepared-statement-per-connection-size: 20
+
+  redis:
+    database: 1
+    host: 127.0.0.1
+    port: 6379
+    timeout: 60000
+    jedis:
+      pool:
+        max-active: 200
+        max-wait: 60000
+        max-idle: 20
+        min-idle: 0
+
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+    publisher-returns: true
+    listener:
+      direct:
+        acknowledge-mode: manual
+      simple:
+        acknowledge-mode: manual
+    publisher-confirm-type: correlated

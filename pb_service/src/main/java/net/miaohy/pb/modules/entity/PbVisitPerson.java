@@ -43,5 +43,4 @@ public class PbVisitPerson extends BaseEntity {
     @ApiModelProperty(value = "用户id")
     private Integer userId;
 
-
 }

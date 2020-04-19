@@ -43,7 +43,7 @@ public class PbVisitPersonServiceImpl extends ServiceImpl<PbVisitPersonMapper, P
             PbVisitPerson visitPerson = request.getVisitPerson();
             visitPerson.setUpdateBy(PbUserManager.getBosUser().getNickName());
             visitPerson.setIsDeleted(1);
-            this.baseMapper.updateById(visitPerson);
+            this.baseMapper.deleteById(visitPerson.getId());
             return Result.ok();
         }else if(actionType==3){
             PbVisitPerson visitPerson = request.getVisitPerson();
@@ -69,9 +69,9 @@ public class PbVisitPersonServiceImpl extends ServiceImpl<PbVisitPersonMapper, P
     public Result getList(GetVisitPersonListRequest request) {
         Integer userId = PbUserManager.getUserId();
         GetVisitPersonListResponse response = new GetVisitPersonListResponse();
-        int pageIdx = request.getPageIdx()*request.getPageIdx();
+        int pageIdx = request.getPageIdx()*request.getPageSize();
         int pageSize = request.getPageSize();
-        int totalCount = this.baseMapper.selectCount(new QueryWrapper<PbVisitPerson>().eq("user_id",userId));
+        int totalCount = this.baseMapper.selectCount(new QueryWrapper<PbVisitPerson>().eq("user_id",userId).eq("is_deleted",0));
         List<PbVisitPerson>  pbVisitPersonList = this.baseMapper.getList(userId,pageIdx,pageSize);
         response.setTotalCount(totalCount);
         response.setVisitPersons(pbVisitPersonList);

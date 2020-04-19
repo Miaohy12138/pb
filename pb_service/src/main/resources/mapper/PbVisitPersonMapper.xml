@@ -20,7 +20,7 @@
     <select id="getList" resultMap="BaseResultMap">
         select *
         from pb_visit_person
-        where 1=1
+        where 1=1 and is_deleted = 0
         <if test="userId!=0 and userId !=null">
             and user_id = #{userId}
         </if>

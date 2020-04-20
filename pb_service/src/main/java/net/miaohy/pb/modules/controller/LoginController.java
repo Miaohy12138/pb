@@ -3,6 +3,7 @@ package net.miaohy.pb.modules.controller;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import net.miaohy.pb.common.model.Result;
+import net.miaohy.pb.common.model.ResultCode;
 import net.miaohy.pb.common.utils.JwtTokenUtil;
 import net.miaohy.pb.modules.request.LoginRequest;
 import net.miaohy.pb.modules.response.LoginResponse;
@@ -30,9 +31,13 @@ public class LoginController {
     @ApiOperation(value = "登陆", notes = "bos用户登陆", response = LoginResponse.class)
     public Result login(@Valid @RequestBody LoginRequest loginRequest, HttpServletResponse response){
         LoginResponse loginResponse = loginServiceImpl.login(loginRequest);
-        // 设置token响应头
-        response.setHeader(JwtTokenUtil.getTokenName(), loginResponse.getToken());
-        return Result.ok(loginResponse, "登陆成功");
+        if(loginResponse==null){
+            return Result.fail(ResultCode.LOGIN_EXCEPTION,"用户名或密码错误");
+        }else{
+            // 设置token响应头
+            response.setHeader(JwtTokenUtil.getTokenName(), loginResponse.getToken());
+            return Result.ok(loginResponse, "登陆成功");
+        }
     }
 
 

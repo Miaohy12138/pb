@@ -64,8 +64,10 @@ public class LoginServiceImpl implements LoginService {
         String md5passward = DigestUtils.md5Hex(loginRequest.getPassword());
         List<PbUserBasic> bosusers = pbUserBasicService.lambdaQuery().eq(PbUserBasic::getNickName, name).eq(PbUserBasic::getPassword, md5passward)
                 .eq(PbUserBasic::getIsDeleted, 0).list();
-        Assert.isCollEmpty(bosusers,"用户名或密码错误");
-
+        if(CollUtil.isEmpty(bosusers)){
+            return null;
+        }
+//        Assert.isCollEmpty(bosusers,"用户名或密码错误");
         // 生成token字符串并返回
         Long expireSecond = jwtProperties.getExpireSecond();
         String token = JwtUtil.generateToken(name, null, Duration.ofSeconds(expireSecond));

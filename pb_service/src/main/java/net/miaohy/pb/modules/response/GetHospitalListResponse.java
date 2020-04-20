@@ -1,7 +1,7 @@
 package net.miaohy.pb.modules.response;
 
 import lombok.Data;
-import net.miaohy.pb.modules.entity.PbVisitPerson;
+import net.miaohy.pb.modules.entity.Hospital;
 
 import java.util.List;
 /**
@@ -9,7 +9,7 @@ import java.util.List;
  * @since 2020-04-19
  */
 @Data
-public class GetVisitPersonListResponse {
-    private List<PbVisitPerson> visitPersons;
+public class GetHospitalListResponse {
     private int totalCount;
+    private List<Hospital> hospitals;
 }

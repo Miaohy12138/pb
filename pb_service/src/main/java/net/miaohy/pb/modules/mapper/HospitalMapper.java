@@ -16,7 +16,7 @@ import java.util.List;
  */
 public interface HospitalMapper extends BaseMapper<Hospital> {
 
-    List<Hospital> getHospitalList(@Param("name") String name,@Param("pageIdx")int pageIdx, @Param("pageSize")int pageSize);
+    List<Hospital> getHospitalList(@Param("level") int level,@Param("name") String name,@Param("pageIdx")int pageIdx, @Param("pageSize")int pageSize);
 
-    int getCountByName(@Param("name")String name);
+    int getCountByName(@Param("level") int level,@Param("name")String name);
 }

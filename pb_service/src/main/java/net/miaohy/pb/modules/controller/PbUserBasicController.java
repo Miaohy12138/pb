@@ -34,12 +34,12 @@ public class PbUserBasicController {
     public Result register(@RequestBody RegisterRequest request){
         return pbUserBasicService.register(request);
     }
-
+    @Log
     @RequestMapping("/editUser")
     public Result editUser(@RequestBody EditUserRequest request){
         return pbUserBasicService.editUser(request);
     }
-
+    @Log
     @PostMapping("/userDetail")
     public Result getUserDetail(HttpServletRequest request){
         return pbUserBasicService.getUserDetail(request);

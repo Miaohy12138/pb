@@ -17,7 +17,7 @@ public enum ResultCode {
 
     FAIL(500, "操作失败"),
 
-    LOGIN_EXCEPTION(4000, "登陆失败"),
+    LOGIN_EXCEPTION(4000, "用户名或密码错误"),
 
     SYSTEM_EXCEPTION(5000, "系统异常!"),
 

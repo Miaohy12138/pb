@@ -1,6 +1,6 @@
 package net.miaohy.pb.modules.request;
 
-import lombok.Data;
+        import lombok.Data;
 
 /**
  * @author miaohy

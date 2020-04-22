@@ -15,7 +15,8 @@ public class GetHospitalListRequest extends BaseListReqeust {
      * 医院名字
      */
     private String name;
-
+    private Integer level;
+    //private Integer sortBy;
 //    /**
 //     * 疾病
 //     */

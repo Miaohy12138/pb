@@ -1,6 +1,7 @@
 package net.miaohy.pb.modules.controller;
 
 
+import net.miaohy.pb.annotation.Log;
 import net.miaohy.pb.common.model.Result;
 import net.miaohy.pb.modules.request.EditVisitPersonRequest;
 import net.miaohy.pb.modules.request.GetVisitPersonDetailRequest;
@@ -28,18 +29,18 @@ public class PbVisitPersonController {
 
     @Autowired
     PbVisitPersonServiceImpl visitPersonService;
-
+    @Log
     @PostMapping("/edit")
     public Result editPerson(@RequestBody EditVisitPersonRequest request){
         return visitPersonService.editPerson(request);
     }
-
+    @Log
     @PostMapping("/detail")
     public Result getDetail(@RequestBody GetVisitPersonDetailRequest request){
         return visitPersonService.getDetail(request);
 
     }
-
+    @Log
     @PostMapping("/list")
     public Result list(@RequestBody GetVisitPersonListRequest request){
         return visitPersonService.getList(request);

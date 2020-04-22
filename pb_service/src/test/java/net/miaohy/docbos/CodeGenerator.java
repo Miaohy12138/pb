@@ -10,7 +10,7 @@ public class CodeGenerator {
     private static String author = "miaohy";
 
     public static void main(String[] args) {
-        generate("modules", "hospital");
+        generate("modules", "pb_doctor");
     }
 
 

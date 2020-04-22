@@ -2,6 +2,7 @@ package net.miaohy.pb.modules.controller;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import net.miaohy.pb.annotation.Log;
 import net.miaohy.pb.common.model.Result;
 import net.miaohy.pb.common.model.ResultCode;
 import net.miaohy.pb.common.utils.JwtTokenUtil;
@@ -26,7 +27,7 @@ public class LoginController {
     @Autowired
     private LoginService loginServiceImpl;
 
-
+    @Log
     @PostMapping("/login")
     @ApiOperation(value = "登陆", notes = "bos用户登陆", response = LoginResponse.class)
     public Result login(@Valid @RequestBody LoginRequest loginRequest, HttpServletResponse response){
@@ -40,7 +41,7 @@ public class LoginController {
         }
     }
 
-
+    @Log
     @PostMapping("/logout")
     @ApiOperation(value = "退出", notes = "bos用户退出", response = LoginResponse.class)
     public Result logout(HttpServletRequest request) throws Exception {

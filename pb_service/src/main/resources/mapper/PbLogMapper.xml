@@ -5,8 +5,8 @@
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="net.miaohy.pb.modules.entity.PbLog">
     <result column="id" property="id" />
-        <result column="user_name" property="userName" />
-        <result column="user_id" property="userId" />
+        <result column="userName" property="userName" />
+        <result column="userId" property="userId" />
         <result column="operation" property="operation" />
         <result column="method" property="method" />
         <result column="params" property="params" />

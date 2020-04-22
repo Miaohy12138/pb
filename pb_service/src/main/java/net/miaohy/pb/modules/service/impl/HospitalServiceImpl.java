@@ -25,8 +25,8 @@ public class HospitalServiceImpl extends ServiceImpl<HospitalMapper, Hospital> i
     public Result getList(GetHospitalListRequest request) {
         int pageIdx = request.getPageIdx()*request.getPageSize();
         int pageSize = request.getPageSize();
-        List<Hospital> hospitals = this.baseMapper.getHospitalList(request.getName(),pageIdx,pageSize);
-        int totalCount =  this.baseMapper.getCountByName(request.getName());
+        List<Hospital> hospitals = this.baseMapper.getHospitalList(request.getLevel(),request.getName(),pageIdx,pageSize);
+        int totalCount =  this.baseMapper.getCountByName(request.getLevel(),request.getName());
         GetHospitalListResponse response = new GetHospitalListResponse();
         response.setHospitals(hospitals);
         response.setTotalCount(totalCount);

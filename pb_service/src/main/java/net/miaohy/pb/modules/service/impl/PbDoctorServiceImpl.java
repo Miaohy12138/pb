@@ -26,7 +26,10 @@ public class PbDoctorServiceImpl extends ServiceImpl<PbDoctorMapper, PbDoctor> i
 
     @Override
     public Result getList(GetDoctorListRequest request) {
-        String name = request.getName();
+        //根据hospitalId  和 departmentId 查询医生列表
+        Integer hospitalId = request.getHospitalId();
+        Integer departmentId = request.getDepartmentId();
+
         int pageIdx = request.getPageIdx()*request.getPageSize();
         int pageSize = request.getPageSize();
         List<PbDoctor> doctorlist = this.baseMapper.getList(name,pageIdx,pageSize);

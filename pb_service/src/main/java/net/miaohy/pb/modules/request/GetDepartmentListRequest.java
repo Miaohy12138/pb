@@ -13,4 +13,6 @@ public class GetDepartmentListRequest  {
      */
     private String ids;
 
+    private String hospitalId;
+
 }

@@ -20,7 +20,7 @@ spring:
       max-pool-prepared-statement-per-connection-size: 20
 
   redis:
-    database: 1
+    database: 0
     host: 127.0.0.1
     port: 6379
     timeout: 60000

@@ -8,5 +8,12 @@ import lombok.Data;
  */
 @Data
 public class GetDoctorListRequest extends BaseListReqeust {
-    private String name;
+    /**
+     * 医院id
+     */
+    private Integer hospitalId;
+    /**
+     * 科室id；
+     */
+    private Integer departmentId;
 }

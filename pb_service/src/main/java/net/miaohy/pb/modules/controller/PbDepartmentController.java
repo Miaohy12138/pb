@@ -3,6 +3,7 @@ package net.miaohy.pb.modules.controller;
 
 import net.miaohy.pb.annotation.Log;
 import net.miaohy.pb.common.model.Result;
+import net.miaohy.pb.modules.request.GetDepartmentDetailRequest;
 import net.miaohy.pb.modules.request.GetDepartmentListRequest;
 import net.miaohy.pb.modules.service.impl.PbDepartmentServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +32,12 @@ public class PbDepartmentController {
     @PostMapping("getByIds")
     public Result getByIds(@RequestBody  GetDepartmentListRequest request){
         return  pbDepartmentService.getByIds(request);
+    }
+    @Log
+    @PostMapping("detail")
+    public Result detail(@RequestBody GetDepartmentDetailRequest request){
+        return pbDepartmentService.detail(request);
+
     }
 
 }

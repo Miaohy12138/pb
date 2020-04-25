@@ -44,4 +44,7 @@ public class Hospital extends BaseEntity {
     @ApiModelProperty(value = "医院图片")
     private String coverUrl;
 
+    @ApiModelProperty(value = "医院科室")
+    private String departments;
+
 }

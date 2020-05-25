@@ -50,6 +50,7 @@
    <!--   各依赖版本管理	-->
 	<dependencyManagement>
 		<dependencies>
+
 			<!--     mybatis plus  -->
 			<dependency>
 				<groupId>com.baomidou</groupId>

@@ -82,6 +82,7 @@ public class LoginServiceImpl implements LoginService {
 
         LoginResponse loginResponse = new LoginResponse();
         loginResponse.setToken(token);
+        loginResponse.setUserId(bosusers.get(0).getId());
         //更新userbasic表
         if(CollUtil.isNotEmpty(bosusers)){
             PbUserBasic user = bosusers.get(0);

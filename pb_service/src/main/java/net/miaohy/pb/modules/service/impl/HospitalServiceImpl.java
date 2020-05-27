@@ -10,6 +10,7 @@ import net.miaohy.pb.modules.response.GetHospitalDetailResponse;
 import net.miaohy.pb.modules.response.GetHospitalListResponse;
 import net.miaohy.pb.modules.service.HospitalService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,6 +23,7 @@ import java.util.List;
 public class HospitalServiceImpl extends ServiceImpl<HospitalMapper, Hospital> implements HospitalService {
 
     @Override
+    //@Async("taskExecutor")
     public Result getList(GetHospitalListRequest request) {
         int pageIdx = request.getPageIdx()*request.getPageSize();
         int pageSize = request.getPageSize();

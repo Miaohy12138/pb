@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.miaohy.pb.modules.mapper.PbSourceMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="net.miaohy.pb.modules.entity.PbSource">
+    <result column="id" property="id" />
+        <result column="create_by" property="createBy" />
+        <result column="create_time" property="createTime" />
+        <result column="update_by" property="updateBy" />
+        <result column="update_time" property="updateTime" />
+        <result column="hospital_id" property="hospitalId" />
+        <result column="doctor_id" property="doctorId" />
+        <result column="time" property="time" />
+        <result column="day" property="day" />
+        <result column="status" property="status" />
+    </resultMap>
+    <resultMap id="sourceItem" type="net.miaohy.pb.modules.entity.item.SourceItem">
+        <result column="id" property="id" />
+        <result column="create_by" property="createBy" />
+        <result column="create_time" property="createTime" />
+        <result column="update_by" property="updateBy" />
+        <result column="update_time" property="updateTime" />
+        <result column="hospital_id" property="hospitalId" />
+        <result column="doctor_id" property="doctorId" />
+        <result column="time" property="time" />
+        <result column="day" property="day" />
+        <result column="status" property="status" />
+        <result column="hName" property="hospitalName"/>
+        <result column="dName" property="departMentName"/>
+        <result column="doctorName" property="doctorName"/>
+    </resultMap>
+    <select id="getlist" resultMap="sourceItem">
+        select *,d.name as dName,h.name as hName
+        from pb_source s
+        left join pb_department d on d.id = s.department_id
+        left join hospital h on h.id = s.hospital_id
+        where s.doctor_id = #{dId}
+    </select>
+    <select id="getDetail" resultMap="sourceItem">
+         select *,d.name as dName,h.name as hName,pd.name as doctorName
+        from pb_source s
+        left join pb_department d on d.id = s.department_id
+        left join hospital h on h.id = s.hospital_id
+        left join pb_doctor pd on pd.id = s.doctor_id
+        where s.id = #{id}
+    </select>
+
+</mapper>

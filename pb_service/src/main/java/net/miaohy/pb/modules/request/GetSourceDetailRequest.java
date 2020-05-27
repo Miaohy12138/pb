@@ -3,10 +3,10 @@ package net.miaohy.pb.modules.request;
 import lombok.Data;
 
 /**
- * @author miaohy
- * @since 2020-04-19
+ * Author : MIAOHY
+ * time : 2020/5/24
  */
 @Data
-public class GetHospitalDetailRequest {
+public class GetSourceDetailRequest  {
     private Integer id;
 }

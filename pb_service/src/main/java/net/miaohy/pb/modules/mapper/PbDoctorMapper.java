@@ -16,7 +16,7 @@ import java.util.List;
  */
 public interface PbDoctorMapper extends BaseMapper<PbDoctor> {
 
-    List<PbDoctor> getList(@Param("name") String name,@Param("pageIdx") int pageIdx,@Param("pageSize") int pageSize);
+    List<PbDoctor> getList(@Param("hospitalId") Integer i,@Param("departmentId") Integer s,@Param("pageIdx") int pageIdx,@Param("pageSize") int pageSize);
 
-    int getCount(@Param("name")String name);
+    int getCount(@Param("hospitalId") Integer i,@Param("departmentId") Integer s);
 }

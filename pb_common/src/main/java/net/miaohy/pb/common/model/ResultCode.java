@@ -17,6 +17,8 @@ public enum ResultCode {
 
     FAIL(500, "操作失败"),
 
+    ORDER_EXITS(555,"该号源已预约"),
+
     LOGIN_EXCEPTION(4000, "用户名或密码错误"),
 
     SYSTEM_EXCEPTION(5000, "系统异常!"),

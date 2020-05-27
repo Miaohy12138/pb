@@ -1,6 +1,14 @@
 package net.miaohy.pb.modules.controller;
 
 
+import com.alipay.api.AlipayApiException;
+import net.miaohy.pb.common.model.Result;
+import net.miaohy.pb.modules.request.EditOrderRequest;
+import net.miaohy.pb.modules.request.OrderListRequest;
+import net.miaohy.pb.modules.service.impl.PbOrderServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
@@ -14,8 +22,17 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2020-05-25
  */
 @RestController
-@RequestMapping("/modules/pb-order")
+@RequestMapping("/pb/order")
 public class PbOrderController {
-
+    @Autowired
+    private PbOrderServiceImpl orderService;
+    @PostMapping("/edit")
+    public Result edit(@RequestBody EditOrderRequest request) throws AlipayApiException {
+        return orderService.edit(request);
+    }
+    @PostMapping("/list")
+    public Result list(@RequestBody OrderListRequest request){
+        return orderService.getlist(request);
+    }
 }
 

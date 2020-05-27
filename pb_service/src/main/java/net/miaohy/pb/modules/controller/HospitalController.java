@@ -26,12 +26,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class HospitalController {
     @Autowired
     HospitalServiceImpl hospitalService;
-    @Log
+
     @PostMapping("list")
     public Result list(@RequestBody GetHospitalListRequest request){
         return hospitalService.getList(request);
     }
-    @Log
+
     @PostMapping("detail")
     public Result detail(@RequestBody GetHospitalDetailRequest request){
         return hospitalService.detail(request);

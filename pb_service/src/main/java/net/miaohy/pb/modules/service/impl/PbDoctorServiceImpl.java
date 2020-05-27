@@ -29,11 +29,10 @@ public class PbDoctorServiceImpl extends ServiceImpl<PbDoctorMapper, PbDoctor> i
         //根据hospitalId  和 departmentId 查询医生列表
         Integer hospitalId = request.getHospitalId();
         Integer departmentId = request.getDepartmentId();
-
         int pageIdx = request.getPageIdx()*request.getPageSize();
         int pageSize = request.getPageSize();
-        List<PbDoctor> doctorlist = this.baseMapper.getList(name,pageIdx,pageSize);
-        int totalCount = this.baseMapper.getCount(name);
+        List<PbDoctor> doctorlist = this.baseMapper.getList(hospitalId,departmentId,pageIdx,pageSize);
+        int totalCount = this.baseMapper.getCount(hospitalId,departmentId);
         GetDoctorListResponse response = new GetDoctorListResponse();
         response.setDoctors(doctorlist);
         response.setTotalCount(totalCount);

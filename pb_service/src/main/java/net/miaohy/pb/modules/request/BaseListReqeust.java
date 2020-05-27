@@ -9,5 +9,4 @@ import lombok.Data;
 public class BaseListReqeust {
     private int pageSize;
     private int pageIdx;
-
 }

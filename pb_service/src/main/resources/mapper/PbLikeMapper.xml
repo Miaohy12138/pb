@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.miaohy.pb.modules.mapper.PbLikeMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="net.miaohy.pb.modules.entity.PbLike">
+    <result column="id" property="id" />
+        <result column="target_id" property="targetId" />
+        <result column="target_type" property="targetType" />
+        <result column="user_id" property="userId" />
+        <result column="create_by" property="createBy" />
+        <result column="create_time" property="createTime" />
+        <result column="update_by" property="updateBy" />
+        <result column="update_time" property="updateTime" />
+        <result column="is_deleted" property="isDeleted" />
+    </resultMap>
+    <resultMap id="item" type="net.miaohy.pb.modules.entity.item.LikeItem">
+        <result column="id" property="id" />
+        <result column="target_id" property="targetId" />
+        <result column="target_type" property="targetType" />
+        <result column="user_id" property="userId" />
+        <result column="create_by" property="createBy" />
+        <result column="create_time" property="createTime" />
+        <result column="update_by" property="updateBy" />
+        <result column="update_time" property="updateTime" />
+        <result column="is_deleted" property="isDeleted" />
+    </resultMap>
+
+
+    <select id="getList" resultMap="item">
+        select *,p.name,p.level
+        from pb_like l
+        <if test="targetType==1">
+            left join hospital p on p.id = l.target_id
+        </if>
+        <if test="targetType==2">
+            left join pb_doctor p on p.id = l.target_id
+        </if>
+        where 1=1
+        and l.target_type  = #{targetType}
+        and l.user_id = #{userId}
+        and l.is_deleted = 0
+        limit #{pageIdx},#{pageSize}
+    </select>
+
+    <select id="getTotalCount" resultType="java.lang.Integer">
+        select count(id)
+        from pb_like
+        where target_type = #{type}
+                and is_deleted = 0
+        and user_id = #{userId}
+    </select>
+
+</mapper>

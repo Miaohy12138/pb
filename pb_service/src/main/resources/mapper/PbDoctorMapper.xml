@@ -21,8 +21,11 @@
         from pb_doctor
         where 1=1
         and is_deleted = 0
-        <if test="name!=null and name!=''">
-            and name like '%${name}%'
+        <if test="hospitalId!=null and hospitalId!=''">
+            and hospital_id = #{hospitalId}
+        </if>
+        <if test="departmentId!=null and departmentId!=''">
+            and department_id = #{departmentId}
         </if>
         limit #{pageIdx},#{pageSize}
     </select>
@@ -31,8 +34,11 @@
         from pb_doctor
         where 1=1
         and is_deleted = 0
-        <if test="name!=null and name!=''">
-            and name like '%${name}%'
+        <if test="hospitalId!=null and hospitalId!=''">
+            and hospital_id = #{hospitalId}
+        </if>
+        <if test="departmentId!=null and departmentId!=''">
+            and department_id = #{departmentId}
         </if>
     </select>
 

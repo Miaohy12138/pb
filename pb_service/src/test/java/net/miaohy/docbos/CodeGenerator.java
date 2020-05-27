@@ -10,7 +10,7 @@ public class CodeGenerator {
     private static String author = "miaohy";
 
     public static void main(String[] args) {
-        generate("modules", "pb_department");
+        generate("modules", "pb_order");
     }
 
 
@@ -44,7 +44,7 @@ public class CodeGenerator {
 
         // 数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://localhost:3306/jeecg-boot?useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=GMT%2B8");
+        dsc.setUrl("jdbc:mysql://localhost:3380/jeecg-boot?useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=GMT%2B8");
         // dsc.setSchemaName("public");
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
         dsc.setUsername("root");

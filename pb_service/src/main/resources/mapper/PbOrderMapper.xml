@@ -14,6 +14,7 @@
         <result column="update_time" property="updateTime" />
         <result column="is_pay" property="isPay" />
         <result column="status" property="status" />
+        <result column="visit_id" property="visitId"/>
     </resultMap>
 
 </mapper>

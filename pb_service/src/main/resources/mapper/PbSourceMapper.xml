@@ -36,6 +36,8 @@
         left join pb_department d on d.id = s.department_id
         left join hospital h on h.id = s.hospital_id
         where s.doctor_id = #{dId}
+        and status <![CDATA[ <> ]]> 0
+        and status <![CDATA[ <> ]]> 3
     </select>
     <select id="getDetail" resultMap="sourceItem">
          select *,d.name as dName,h.name as hName,pd.name as doctorName

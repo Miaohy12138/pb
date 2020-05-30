@@ -15,6 +15,24 @@
         <result column="create-time" property="createTime" />
         <result column="update_by" property="updateBy" />
         <result column="update_time" property="updateTime" />
+        <result column="image_url" property="imageUrl" />
+        <result column="hospital_name" property="hospitalName"/>
+    </resultMap>
+    <resultMap id="item" type="net.miaohy.pb.modules.entity.item.DoctorItem">
+        <result column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="level" property="level" />
+        <result column="hospital_id" property="hospitalId" />
+        <result column="department_id" property="departmentId" />
+        <result column="good_disease" property="goodDisease" />
+        <result column="introduction" property="introduction" />
+        <result column="create_by" property="createBy" />
+        <result column="create-time" property="createTime" />
+        <result column="update_by" property="updateBy" />
+        <result column="update_time" property="updateTime" />
+        <result column="image_url" property="imageUrl" />
+        <result column="hospitalName" property="hospitalName"/>
+        <result column="level" property="hospitalLevel"/>
     </resultMap>
     <select id="getList" resultMap="BaseResultMap">
         select *
@@ -40,6 +58,18 @@
         <if test="departmentId!=null and departmentId!=''">
             and department_id = #{departmentId}
         </if>
+    </select>
+    <select id="getByName" resultMap="item">
+        select d.*,h.name as hospitalName ,h.level as level
+        from pb_doctor d
+        left join hospital h on h.id = d.hospital_id
+        where   d.name like concat('%',#{name},'%')
+        limit #{pageIdx},#{pageSize}
+    </select>
+    <select id="getCountByName" resultType="java.lang.Integer">
+        select count(*)
+        from pb_doctor
+        where   name like concat('%',#{name},'%')
     </select>
 
 

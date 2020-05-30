@@ -11,5 +11,4 @@ import net.miaohy.pb.modules.entity.PbOrder;
 public class EditOrderRequest extends BaseEditRequest{
     private Integer id;
     private PbOrder order;
-
 }

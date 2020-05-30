@@ -4,6 +4,7 @@ package net.miaohy.pb.modules.controller;
 import net.miaohy.pb.common.model.Result;
 import net.miaohy.pb.modules.request.EditCommentRequest;
 import net.miaohy.pb.modules.request.CommentListRequest;
+import net.miaohy.pb.modules.request.GetInfoRequest;
 import net.miaohy.pb.modules.service.impl.PbCommentServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,9 +32,17 @@ public class PbCommentController {
     public Result getlist(@RequestBody CommentListRequest request){
         return commentService.getList(request);
     }
-    @PostMapping("add")
+    @PostMapping("edit")
     public Result add(@RequestBody EditCommentRequest request){
         return commentService.edit(request);
+    }
+    @PostMapping("getCount")
+    public Result getCount(@RequestBody GetInfoRequest request){
+        return commentService.getCount(request);
+    }
+    @PostMapping("getRate")
+    public Result getRate(@RequestBody GetInfoRequest request){
+        return commentService.getRate(request);
     }
 }
 

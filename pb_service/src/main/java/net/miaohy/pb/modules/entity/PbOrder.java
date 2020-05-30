@@ -40,5 +40,6 @@ public class PbOrder extends BaseEntity {
     @ApiModelProperty(value = "0 未支付 1 进行中 2 待评价 3 已完成")
     private Integer status;
 
+    private Integer visitId;
 
 }

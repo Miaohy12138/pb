@@ -39,4 +39,8 @@ public class PbDoctor extends BaseEntity {
     private String goodDisease;
 
     private String introduction;
+
+    private String imageUrl;
+
+    private String hospitalName;
 }

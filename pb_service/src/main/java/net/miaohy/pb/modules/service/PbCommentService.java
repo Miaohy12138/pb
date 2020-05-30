@@ -5,6 +5,7 @@ import net.miaohy.pb.modules.entity.PbComment;
 import com.baomidou.mybatisplus.extension.service.IService;
 import net.miaohy.pb.modules.request.EditCommentRequest;
 import net.miaohy.pb.modules.request.CommentListRequest;
+import net.miaohy.pb.modules.request.GetInfoRequest;
 
 /**
  * <p>
@@ -19,4 +20,8 @@ public interface PbCommentService extends IService<PbComment> {
     Result getList(CommentListRequest request);
 
     Result edit(EditCommentRequest request);
+
+    Result getCount(GetInfoRequest request);
+
+    Result getRate(GetInfoRequest request);
 }

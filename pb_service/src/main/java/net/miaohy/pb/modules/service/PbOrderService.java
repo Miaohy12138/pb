@@ -5,6 +5,7 @@ import net.miaohy.pb.common.model.Result;
 import net.miaohy.pb.modules.entity.PbOrder;
 import com.baomidou.mybatisplus.extension.service.IService;
 import net.miaohy.pb.modules.request.EditOrderRequest;
+import net.miaohy.pb.modules.request.OrderDetailRequest;
 import net.miaohy.pb.modules.request.OrderListRequest;
 
 /**
@@ -20,4 +21,6 @@ public interface PbOrderService extends IService<PbOrder> {
     Result edit(EditOrderRequest request) throws AlipayApiException;
 
     Result getlist(OrderListRequest request);
+
+    Result detail(OrderDetailRequest request);
 }

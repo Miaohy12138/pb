@@ -35,5 +35,7 @@ public class PbComment extends BaseEntity {
     @ApiModelProperty(value = "评分")
     private Float score;
 
+    private String content;
 
+    private Integer orderId;
 }

@@ -39,7 +39,7 @@
 		<swagger.version>2.9.2</swagger.version>
 		<swagger.ui.version>1.9.6</swagger.ui.version>
 <!--		<shiro.spring.version>1.4.2</shiro.spring.version>-->
-		<shiro.version>1.4.2</shiro.version>
+		<shiro.version>1.7.0</shiro.version>
 		<jackson.version> 2.9.10</jackson.version>
 		<jackson-databind.version> 2.9.10.3</jackson-databind.version>
 		<jwt.auth0.version>3.9.0</jwt.auth0.version>
